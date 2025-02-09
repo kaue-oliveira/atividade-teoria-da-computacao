@@ -1,0 +1,6 @@
+fastapi>=0.68.0
+uvicorn>=0.15.0
+automata-lib>=5.0.0
+matplotlib>=3.4.0
+pydantic>=1.8.0
+python-multipart>=0.0.5

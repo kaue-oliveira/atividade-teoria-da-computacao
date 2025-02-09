@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automata Simulator</title>
+    <link rel="stylesheet" href="static/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Automata Simulator</h1>
+        
+        <div class="tabs">
+            <button class="tab-btn active" onclick="switchTab('afd')">AFD</button>
+            <button class="tab-btn" onclick="switchTab('pda')">PDA</button>
+            <button class="tab-btn" onclick="switchTab('tm')">Turing Machine</button>
+        </div>
+        <!-- AFD Section -->
+        <div id="afd" class="tab-content active">
+            <h2>Automata Finito Determinístico</h2>
+            <form id="afd-form">
+                <input type="text" placeholder="States (e.g., q0,q1,q2)" id="afd-states">
+                <input type="text" placeholder="Input Symbols (e.g., 0,1)" id="afd-symbols">
+                <input type="text" placeholder="Initial State (e.g., q0)" id="afd-initial">
+                <input type="text" placeholder="Final States (e.g., q2)" id="afd-final">
+                <textarea placeholder="Transitions in JSON format. Example:
+{
+    'q0': {
+        '0': 'q0',
+        '1': 'q1'
+    },
+    'q1': {
+        '0': 'q2',
+        '1': 'q1'
+    },
+    'q2': {
+        '0': 'q2',
+        '1': 'q2'
+    }
+}" id="afd-transitions"></textarea>
+                <button type="submit">Create AFD</button>
+            </form>
+        </div>
+
+        <!-- PDA Section -->
+        <div id="pda" class="tab-content">
+            <h2>Automato com Pilha</h2>
+            <form id="pda-form">
+                <input type="text" placeholder="States (e.g., q0,q1,q2)" id="pda-states">
+                <input type="text" placeholder="Input Symbols (e.g., a,b)" id="pda-symbols">
+                <input type="text" placeholder="Stack Symbols (e.g., A,Z)" id="pda-stack-symbols">
+                <input type="text" placeholder="Initial State (e.g., q0)" id="pda-initial">
+                <input type="text" placeholder="Initial Stack Symbol (e.g., Z)" id="pda-initial-stack">
+                <input type="text" placeholder="Final States (e.g., q2)" id="pda-final">
+                <textarea placeholder="Transitions in JSON format. Example:
+{
+    'q0': {
+        'a': {
+            'Z': [['q0', ['A', 'Z']]],
+            'A': [['q0', ['A', 'A']]]
+        },
+        'b': {
+            'A': [['q1', []]]
+        }
+    },
+    'q1': {
+        'b': {
+            'A': [['q1', []]]
+        },
+        '': {
+            'Z': [['q2', ['Z']]]
+        }
+    }
+}" id="pda-transitions"></textarea>
+                <button type="submit">Create PDA</button>
+            </form>
+        </div>
+
+        <!-- Turing Machine Section -->
+        <div id="tm" class="tab-content">
+            <h2>Turing Machine</h2>
+            <form id="tm-form">
+                <input type="text" placeholder="States (e.g., q0,q1,q2,q3,qf)" id="tm-states">
+                <input type="text" placeholder="Input Symbols (e.g., a,b,c)" id="tm-symbols">
+                <input type="text" placeholder="Tape Symbols (e.g., a,b,c,X,Y,Z,_)" id="tm-tape-symbols">
+                <input type="text" placeholder="Initial State (e.g., q0)" id="tm-initial">
+                <input type="text" placeholder="Blank Symbol (e.g., _)" id="tm-blank">
+                <input type="text" placeholder="Final States (e.g., qf)" id="tm-final">
+                <textarea placeholder="Transitions in JSON format. Example:
+{
+    'q0': {
+        'a': ['q1', 'X', 'R'],
+        'Y': ['q3', 'Y', 'R']
+    },
+    'q1': {
+        'a': ['q1', 'a', 'R'],
+        'b': ['q2', 'Y', 'R'],
+        'Y': ['q1', 'Y', 'R']
+    }
+}" id="tm-transitions"></textarea>
+                <button type="submit">Create TM</button>
+            </form>
+        </div>
+        <div id="test-section" class="hidden">
+            <h3>Test Input</h3>
+            <input type="text" id="test-input" placeholder="Enter string to test">
+            <button onclick="testInput()">Test</button>
+            <div id="result"></div>
+            <div id="visualization"></div>
+        </div>
+    </div>
+    <script src="static/js/script.js"></script>
+</body>
+</html>
