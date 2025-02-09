@@ -175,18 +175,13 @@ Example: Create a TM that accepts a^n b^n c^n
 - TM: Single tape implementation
 - Single-character input symbols only
 
-### Performance Considerations
-- Not optimized for very large inputs
-- Complex automata visualization may be slower
 
 ### Input Requirements
-- Well-formed JSON according to specifications
+- Well-formed JSON according to professor specifications
 - Standard state naming convention (q0, q1, etc.)
 - Strict JSON format adherence required
 
-## FastAPI Configuration
-
-Add these parameters to your FastAPI app in main.py:
+###Thanks for using this project!
 
 
 app = FastAPI(
