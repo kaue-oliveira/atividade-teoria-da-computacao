@@ -182,12 +182,3 @@ Example: Create a TM that accepts a^n b^n c^n
 - Strict JSON format adherence required
 
 ###Thanks for using this project!
-
-
-app = FastAPI(
-    title="Automata API",
-    description="API for simulating and testing different types of automata: AFD, PDA, and Turing Machines",
-    version="1.0.0",
-    docs_url="/docs",
-    redoc_url="/redoc"
-)
