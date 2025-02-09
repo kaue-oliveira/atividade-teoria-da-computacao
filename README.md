@@ -181,4 +181,4 @@ Example: Create a TM that accepts a^n b^n c^n
 - Standard state naming convention (q0, q1, etc.)
 - Strict JSON format adherence required
 
-###Thanks for using this project!
+### Thanks for using this project!
